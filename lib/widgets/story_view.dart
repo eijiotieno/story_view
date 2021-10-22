@@ -46,6 +46,7 @@ class StoryItem {
   final String storyID;
   final int likeCount;
   final String url;
+  final String media_type;
 
   /// The page content
   final Widget view;
@@ -55,6 +56,7 @@ class StoryItem {
     required this.likeCount,
     required this.duration,
     required this.storyID,
+    required this.media_type,
     this.shown = false,
   }) : assert(duration != null, "[duration] should not be null");
 
@@ -71,6 +73,7 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required String title,
+     required String media_type,
     required Color backgroundColor,
     Key? key,
     TextStyle? textStyle,
@@ -118,6 +121,7 @@ class StoryItem {
         ),
         //color: backgroundColor,
       ),
+      media_type: media_type,
       url: url,
       likeCount: likeCount,
       storyID: storyID,
@@ -132,6 +136,7 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required String url,
+     required String media_type,
     required StoryController controller,
     Key? key,
     BoxFit imageFit = BoxFit.fitWidth,
@@ -209,6 +214,7 @@ class StoryItem {
           ],
         ),
       ),
+      media_type: media_type,
       url: url,
       likeCount: likeCount,
       storyID: storyID,
@@ -226,6 +232,7 @@ class StoryItem {
     required String storyID,
     required String url,
     required Text caption,
+     required String media_type,
     required StoryController controller,
     Key? key,
     BoxFit imageFit = BoxFit.cover,
@@ -270,6 +277,7 @@ class StoryItem {
           bottom: Radius.circular(roundedBottom ? 8 : 0),
         ),
       ),
+      media_type: media_type,
       url: url,
       likeCount: likeCount,
       storyID: storyID,
@@ -285,6 +293,7 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required StoryController controller,
+     required String media_type,
     Key? key,
     Duration? duration,
     int? durationTime,
@@ -360,6 +369,7 @@ class StoryItem {
           ],
         ),
       ),
+      media_type: media_type,
       url: url,
       likeCount: likeCount,
       storyID: storyID,
@@ -379,6 +389,7 @@ class StoryItem {
     required String url,
     required int likeCount,
     required String storyID,
+     required String media_type,
     BoxFit imageFit = BoxFit.fitWidth,
     String? caption,
     bool shown = false,
@@ -429,6 +440,7 @@ class StoryItem {
             ],
           ),
         ),
+        media_type: media_type,
         url: url,
         likeCount: likeCount,
         storyID: storyID,
@@ -446,6 +458,7 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required String url,
+     required String media_type,
     bool shown = false,
     bool roundedTop = true,
     bool roundedBottom = false,
@@ -481,6 +494,7 @@ class StoryItem {
           ),
         ),
       ),
+      media_type: media_type,
       url: url,
       likeCount: likeCount,
       storyID: storyID,
