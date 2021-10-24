@@ -158,26 +158,26 @@ class StoryItem {
               fit: imageFit,
               requestHeaders: requestHeaders,
             ),
-            SafeArea(
+              SafeArea(
               child: Column(
                 children: [
                   Container(
                     width: double.infinity,
                     margin: EdgeInsets.only(
-                      top: 30,
+                      top: 20,
                       left: 10.0,
                       right: 10.0,
                     ),
                     decoration: BoxDecoration(
                       color:
-                          author != null ? Colors.black45 : Colors.transparent,
+                          author != null ? Colors.black12: Colors.transparent,
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: author != null
                         ? Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 2,
-                              vertical: 1,
+                              vertical: 2,
                             ),
                             child: Row(
                               children: [
@@ -193,7 +193,7 @@ class StoryItem {
                                   child: Container(),
                                 ),
                                 Text(
-                                  'like ' + likeCount.toString(),
+                                  ' . 😂️ ' + likeCount.toString(),
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.white,
@@ -319,20 +319,20 @@ class StoryItem {
                   Container(
                     width: double.infinity,
                     margin: EdgeInsets.only(
-                      top: 30,
+                      top: 20,
                       left: 10.0,
                       right: 10.0,
                     ),
                     decoration: BoxDecoration(
                       color:
-                          author != null ? Colors.black45 : Colors.transparent,
+                          author != null ? Colors.black12: Colors.transparent,
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: author != null
                         ? Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 2,
-                              vertical: 1,
+                              vertical: 2,
                             ),
                             child: Row(
                               children: [
@@ -348,7 +348,7 @@ class StoryItem {
                                   child: Container(),
                                 ),
                                 Text(
-                                  'like ' + likeCount.toString(),
+                                  ' . 😂️ ' + likeCount.toString(),
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.white,
@@ -881,7 +881,7 @@ class PageBar extends StatefulWidget {
 }
 
 class PageBarState extends State<PageBar> {
-  double spacing = 4;
+  double spacing = 2;
 
   @override
   void initState() {
@@ -917,7 +917,7 @@ class PageBarState extends State<PageBar> {
             child: StoryProgressIndicator(
               isPlaying(it) ? widget.animation!.value : (it.shown ? 1 : 0),
               indicatorHeight:
-                  widget.indicatorHeight == IndicatorHeight.large ? 5 : 3,
+                  widget.indicatorHeight == IndicatorHeight.large ? 2 : 2,
             ),
           ),
         );
@@ -935,7 +935,7 @@ class StoryProgressIndicator extends StatelessWidget {
 
   StoryProgressIndicator(
     this.value, {
-    this.indicatorHeight = 3,
+    this.indicatorHeight = 2,
   }) : assert(indicatorHeight != null && indicatorHeight > 0,
             "[indicatorHeight] should not be null or less than 1");
 
@@ -946,11 +946,11 @@ class StoryProgressIndicator extends StatelessWidget {
         this.indicatorHeight,
       ),
       foregroundPainter: IndicatorOval(
-        Colors.white.withOpacity(0.8),
+        Colors.white.withOpacity(0.9),
         this.value,
       ),
       painter: IndicatorOval(
-        Colors.white.withOpacity(0.4),
+        Colors.white.withOpacity(0.2),
         1.0,
       ),
     );
