@@ -47,6 +47,7 @@ class StoryItem {
   final int likeCount;
   final String url;
   final String media_type;
+  final String userID;
 
   /// The page content
   final Widget view;
@@ -57,6 +58,7 @@ class StoryItem {
     required this.duration,
     required this.storyID,
     required this.media_type,
+    required this.userID,
     this.shown = false,
   }) : assert(duration != null, "[duration] should not be null");
 
@@ -73,8 +75,9 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required String title,
-     required String media_type,
+    required String media_type,
     required Color backgroundColor,
+    required String userID,
     Key? key,
     TextStyle? textStyle,
     bool shown = false,
@@ -121,6 +124,7 @@ class StoryItem {
         ),
         //color: backgroundColor,
       ),
+      userID: userID,
       media_type: media_type,
       url: url,
       likeCount: likeCount,
@@ -136,8 +140,9 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required String url,
-     required String media_type,
+    required String media_type,
     required StoryController controller,
+    required String userID,
     Key? key,
     BoxFit imageFit = BoxFit.fitWidth,
     String? author,
@@ -158,7 +163,7 @@ class StoryItem {
               fit: imageFit,
               requestHeaders: requestHeaders,
             ),
-              SafeArea(
+            SafeArea(
               child: Column(
                 children: [
                   Container(
@@ -170,7 +175,7 @@ class StoryItem {
                     ),
                     decoration: BoxDecoration(
                       color:
-                          author != null ? Colors.black12: Colors.transparent,
+                          author != null ? Colors.black12 : Colors.transparent,
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: author != null
@@ -185,7 +190,7 @@ class StoryItem {
                                   author,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 15,
                                     color: Colors.white,
                                   ),
                                 ),
@@ -193,9 +198,9 @@ class StoryItem {
                                   child: Container(),
                                 ),
                                 Text(
-                                  ' . 😂️ ' + likeCount.toString(),
+                                  '. ❤️ ' + likeCount.toString(),
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 15,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -214,6 +219,7 @@ class StoryItem {
           ],
         ),
       ),
+      userID: userID,
       media_type: media_type,
       url: url,
       likeCount: likeCount,
@@ -232,8 +238,9 @@ class StoryItem {
     required String storyID,
     required String url,
     required Text caption,
-     required String media_type,
+    required String media_type,
     required StoryController controller,
+    required String userID,
     Key? key,
     BoxFit imageFit = BoxFit.cover,
     Map<String, dynamic>? requestHeaders,
@@ -277,6 +284,7 @@ class StoryItem {
           bottom: Radius.circular(roundedBottom ? 8 : 0),
         ),
       ),
+      userID: userID,
       media_type: media_type,
       url: url,
       likeCount: likeCount,
@@ -293,7 +301,8 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required StoryController controller,
-     required String media_type,
+    required String media_type,
+    required String userID,
     Key? key,
     Duration? duration,
     int? durationTime,
@@ -325,7 +334,7 @@ class StoryItem {
                     ),
                     decoration: BoxDecoration(
                       color:
-                          author != null ? Colors.black12: Colors.transparent,
+                          author != null ? Colors.black12 : Colors.transparent,
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: author != null
@@ -340,7 +349,7 @@ class StoryItem {
                                   author,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 15,
                                     color: Colors.white,
                                   ),
                                 ),
@@ -348,9 +357,9 @@ class StoryItem {
                                   child: Container(),
                                 ),
                                 Text(
-                                  ' . 😂️ ' + likeCount.toString(),
+                                  '. ❤️ ' + likeCount.toString(),
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 15,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -369,6 +378,7 @@ class StoryItem {
           ],
         ),
       ),
+      userID: userID,
       media_type: media_type,
       url: url,
       likeCount: likeCount,
@@ -389,7 +399,8 @@ class StoryItem {
     required String url,
     required int likeCount,
     required String storyID,
-     required String media_type,
+    required String media_type,
+    required String userID,
     BoxFit imageFit = BoxFit.fitWidth,
     String? caption,
     bool shown = false,
@@ -440,6 +451,7 @@ class StoryItem {
             ],
           ),
         ),
+        userID: userID,
         media_type: media_type,
         url: url,
         likeCount: likeCount,
@@ -458,7 +470,8 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required String url,
-     required String media_type,
+    required String media_type,
+    required String userID,
     bool shown = false,
     bool roundedTop = true,
     bool roundedBottom = false,
@@ -494,6 +507,7 @@ class StoryItem {
           ),
         ),
       ),
+      userID: userID,
       media_type: media_type,
       url: url,
       likeCount: likeCount,
