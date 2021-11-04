@@ -183,25 +183,16 @@ class StoryItem {
                         horizontal: 5,
                         vertical: 5,
                       ),
-                      child: Row(
-                        children: [
-                          Text(
-                            '❤️ ' + likeCount.toString(),
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            ' 💔️ ' + dislikeCount.toString(),
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                      child: Text(
+                        '❤️ ' +
+                            likeCount.toString() +
+                            ' 💔️ ' +
+                            dislikeCount.toString(),
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
