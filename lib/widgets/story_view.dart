@@ -168,30 +168,33 @@ class StoryItem {
             SafeArea(
               child: Column(
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: 20,
-                      left: 10.0,
-                      right: 10.0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.black26,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 5,
-                        vertical: 5,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        top: 20,
+                        left: 10.0,
+                        right: 10.0,
                       ),
-                      child: Text(
-                        '❤️ ' +
-                            likeCount.toString() +
-                            ' 💔️ ' +
-                            dislikeCount.toString(),
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                      decoration: BoxDecoration(
+                        color: Colors.black26,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 5,
+                          vertical: 5,
+                        ),
+                        child: Text(
+                          '❤️ ' +
+                              likeCount.toString() +
+                              ' 💔️ ' +
+                              dislikeCount.toString(),
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
