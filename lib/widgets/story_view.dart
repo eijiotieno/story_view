@@ -10,10 +10,10 @@ import '../utils.dart';
 import 'story_image.dart';
 import 'story_video.dart';
 
-enum MediaType {
-  image,
-  video,
-}
+// enum MediaType {
+//   image,
+//   video,
+// }
 
 /// Indicates where the progress indicators should be placed.
 enum ProgressPosition {
@@ -45,8 +45,9 @@ class StoryItem {
   bool shown;
   final String storyID;
   final int likeCount;
+  final int dislikeCount;
   final String url;
-  final String media_type;
+  // final String media_type;
   final String userID;
 
   /// The page content
@@ -55,9 +56,10 @@ class StoryItem {
     this.view, {
     required this.url,
     required this.likeCount,
+    required this.dislikeCount,
     required this.duration,
     required this.storyID,
-    required this.media_type,
+    // required this.media_type,
     required this.userID,
     this.shown = false,
   }) : assert(duration != null, "[duration] should not be null");
@@ -73,9 +75,9 @@ class StoryItem {
   static StoryItem text({
     required String url,
     required int likeCount,
+    required int dislikeCount,
     required String storyID,
     required String title,
-    required String media_type,
     required Color backgroundColor,
     required String userID,
     Key? key,
@@ -125,9 +127,9 @@ class StoryItem {
         //color: backgroundColor,
       ),
       userID: userID,
-      media_type: media_type,
       url: url,
       likeCount: likeCount,
+      dislikeCount: dislikeCount,
       storyID: storyID,
       shown: shown,
       duration: duration ?? Duration(seconds: 3),
@@ -140,12 +142,12 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required String url,
-    required String media_type,
+    required int dislikeCount,
     required StoryController controller,
     required String userID,
     Key? key,
     BoxFit imageFit = BoxFit.fitWidth,
-    String? author,
+    // String? author,
     bool shown = false,
     Map<String, dynamic>? requestHeaders,
     Duration? duration,
@@ -167,48 +169,41 @@ class StoryItem {
               child: Column(
                 children: [
                   Container(
-                    width: double.infinity,
                     margin: EdgeInsets.only(
                       top: 20,
                       left: 10.0,
                       right: 10.0,
                     ),
                     decoration: BoxDecoration(
-                      color:
-                          author != null ? Colors.black12 : Colors.transparent,
-                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.black26,
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: author != null
-                        ? Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 2,
-                              vertical: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 5,
+                        vertical: 5,
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            '❤️ ' + likeCount.toString(),
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
-                            child: Row(
-                              children: [
-                                Text(
-                                  author,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Container(),
-                                ),
-                                Text(
-                                  '. ❤️ ' + likeCount.toString(),
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
+                          ),
+                          Text(
+                            ' 💔️ ' + dislikeCount.toString(),
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
-                          )
-                        : SizedBox.shrink(),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   Flexible(
                     child: Container(),
@@ -220,9 +215,9 @@ class StoryItem {
         ),
       ),
       userID: userID,
-      media_type: media_type,
       url: url,
       likeCount: likeCount,
+      dislikeCount: dislikeCount,
       storyID: storyID,
       shown: shown,
       duration: Duration(
@@ -238,7 +233,7 @@ class StoryItem {
     required String storyID,
     required String url,
     required Text caption,
-    required String media_type,
+    required int dislikeCount,
     required StoryController controller,
     required String userID,
     Key? key,
@@ -285,7 +280,7 @@ class StoryItem {
         ),
       ),
       userID: userID,
-      media_type: media_type,
+      dislikeCount: dislikeCount,
       url: url,
       likeCount: likeCount,
       storyID: storyID,
@@ -301,7 +296,7 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required StoryController controller,
-    required String media_type,
+    required int dislikeCount,
     required String userID,
     Key? key,
     Duration? duration,
@@ -379,7 +374,7 @@ class StoryItem {
         ),
       ),
       userID: userID,
-      media_type: media_type,
+      dislikeCount: dislikeCount,
       url: url,
       likeCount: likeCount,
       storyID: storyID,
@@ -399,7 +394,7 @@ class StoryItem {
     required String url,
     required int likeCount,
     required String storyID,
-    required String media_type,
+    required int dislikeCount,
     required String userID,
     BoxFit imageFit = BoxFit.fitWidth,
     String? caption,
@@ -452,7 +447,7 @@ class StoryItem {
           ),
         ),
         userID: userID,
-        media_type: media_type,
+        dislikeCount: dislikeCount,
         url: url,
         likeCount: likeCount,
         storyID: storyID,
@@ -470,7 +465,7 @@ class StoryItem {
     required int likeCount,
     required String storyID,
     required String url,
-    required String media_type,
+    required int dislikeCount,
     required String userID,
     bool shown = false,
     bool roundedTop = true,
@@ -508,7 +503,7 @@ class StoryItem {
         ),
       ),
       userID: userID,
-      media_type: media_type,
+      dislikeCount: dislikeCount,
       url: url,
       likeCount: likeCount,
       storyID: storyID,
